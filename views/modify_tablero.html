@@ -1,0 +1,26 @@
+<div ng-controller="TablerosCtrl">
+	<div class="modal-header">
+		<h3 class="modal-title">Modificar Tablero {{esteTab.nombre}}</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form" role="form">
+			<h3>Datos para el historial de cambios del tablero</h3>
+			<div class="form-group">
+				<label for="fecha">Fecha </label>
+				<input type="text" name="fecha" ng-model='Hist.fecha' class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="autor">Autor </label>
+				<input type="text" name="autor" ng-model='Hist.autor' class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="cambios">Cambios </label>
+				<input type="text" name="cambios" ng-model='Hist.cambios' class="form-control" />
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-danger" ng-click="modify()">Modificar</button>
+		<button type="button" class="btn btn-primary" ng-click="cancel()">Cancelar</button>
+	</div>
+</div>

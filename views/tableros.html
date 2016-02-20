@@ -1,0 +1,52 @@
+  <div class="pull-right" id="botonera_detalle">
+    <span class="glyphicon glyphicon-remove btn" ng-click="tableros.eliminarTablero()"></span>
+    <span class="glyphicon glyphicon-pencil btn" ng-click="tableros.mostrarEdicion()"></span>
+  </div>
+  <div style="border-bottom: 1px solid #EEEEEE; margin-top:20px;">
+    <div class="titulo_detalle">
+      <h2>Nombre: {{tableros.tablero.nombre}}</h2>
+    </div>
+    <div class="cuerpo_detalle" id="cuerpo_detalle">
+      <div class="ubicacion pull-right">
+        <h3>Ubicacion: {{tableros.tablero.ubicacion}}</h3>
+      </div>
+      <h3>Se alimenta de: {{tableros.tablero.alimentadoPor}}</h3>
+      <h3>Alimenta a: </h3>
+      <div class="pull-right">
+        <button type="button" class="btn btn-primary" ng-click="tableros.verHistorial()">Historial</button>
+      </div>
+      <div class="itemAlimentaA" ng-repeat="alimentaA in tableros.tablero.alimentaA | orderBy: 'llave'">
+        <h3>{{alimentaA.llave}} <span class="glyphicon glyphicon-arrow-right"></span> {{alimentaA.salida}}</h3>
+      </div>
+    </div>
+  </div>
+
+  <form novalidate ng-submit="tableros.modificarTablero()" id="form_edicion" ng-show="tableros.edicion">
+    <h3 style="border-bottom: 1px solid #EEEEEE;">Editar Tablero</h3>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" ng-model="tableros.tableroCopia.nombre" />
+    </div>
+    <div class="form-group">
+      <label for="ubicacion">Ubicacion</label>
+      <input type="text" name="ubicacion" ng-model="tableros.tableroCopia.ubicacion" />
+    </div>
+    <div class="form-group">
+      <label for="alimentadoPor">Alimentado Por</label>
+      <input type="text" name="alimentadoPor" ng-model="tableros.tableroCopia.alimentadoPor" />
+    </div>
+    <h3>Alimenta a: </h3>
+    <button type="button" id="btnAgregarCampo" class="btn btn-default pull-right" ng-click="tableros.agregarCampo()">
+      <span class="glyphicon glyphicon-plus"></span>
+      <span>Agregar campo</span>
+    </button>
+    <div class="form-group" ng-repeat="input in tableros.tableroCopia.alimentaA">
+      <label for="llave">Llave</label>
+      <input type="text" name="llave" ng-model="input.llave" placeholder="Llave" size="3" class="centrado">
+      <label for="salida"><span class="glyphicon glyphicon-arrow-right"></span></label>
+      <input type="text" name="salida" ng-model="input.salida" placeholder="Tab" size="40">
+      <span class="glyphicon glyphicon-remove" ng-click="tableros.removerCampo(input)"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    <button type="button" class="btn btn-danger" ng-click="tableros.mostrarEdicion()">Cancelar</button>
+  </form>

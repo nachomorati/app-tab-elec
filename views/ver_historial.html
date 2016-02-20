@@ -1,0 +1,15 @@
+<div class="modal-header">
+	<h3 class="modal-title">Ver historial de cambio</h3>
+</div>
+<div class="modal-body">
+	<ul ng-show="hayCambios">
+		<li ng-repeat="cambio in hist">
+			<p>Fecha del cambio: {{cambio.fecha}}</p>
+			<p>Pedido por: {{cambio.autor}}</p>
+			<p>Cambio: {{cambio.cambios}}</p>
+		</li>
+	</ul>
+	<div ng-hide="hayCambios">
+		<p>No se registran cambios</p>
+	</div>
+</div>

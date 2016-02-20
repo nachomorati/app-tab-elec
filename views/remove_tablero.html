@@ -1,0 +1,29 @@
+<div ng-controller="TablerosCtrl">
+	<div class="modal-header">
+		<h3 class="modal-title">Eliminar tablero</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form" role="form">
+			<h3>Está a punto de eliminar el tablero: </h3>
+			<div class="panel-group" id="panel_eliminar_tablero">
+				<div class="panel panel-primary">
+					<div class="panel-heading"><h4>Nombre: {{tablero.nombre}}</h4></div>
+					<div class="panel-body"><h4>Ubicado en: {{tablero.ubicacion}}</h4></div>
+					<div class="panel-footer"><h4>Se alimenta de: {{tablero.alimentadoPor}}</h4></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="datos.fecha">Fecha de baja </label>
+				<input class="form-control" type="date" id="datos.fecha" name="datos.fecha" ng-model="Datos.fecha" />
+			</div>
+			<div class="form-group">
+				<label for="datos.razon">Motivo </label>
+				<input type="textarea" class="form-control" rows="5" id="datos.razon" name="datos.razon" ng-model="Datos.razon" />
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-danger" ng-click="delete()">Eliminar</button>
+		<button type="button" class="btn btn-primary" ng-click="cancel()">Cancelar</button>
+	</div>
+</div>

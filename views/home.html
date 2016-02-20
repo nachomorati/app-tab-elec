@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-10">
+    <h2>Tableros Electricos</h2>
+  </div>
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><span class="orderBy" ng-click="main.order('nombre')">Nombre</span></th>
+          <th><span class="orderBy" ng-click="main.order('ubicacion')">Ubicacion</span></th>
+          <th>Detalles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="tablero in main.storage | orderBy: main.parametro track by $index">
+          <td>{{tablero.nombre}}</td>
+          <td>{{tablero.ubicacion}}</td>
+          <td><a href="#/tableros/{{main.storage.indexOf(tablero)}}">editar</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
