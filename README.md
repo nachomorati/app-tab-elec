@@ -1,5 +1,7 @@
 # app-tab-elec
-Una App con angularJS y LocalStorage para administrar tableros electricos
+<h1>Una App con angularJS y LocalStorage para administrar tableros electricos</h1>
+<ol>
+  <li>Fork</li>
+  <li>Clone</li>
+</ol>
 
-1- Fork;
-2- Clone;
